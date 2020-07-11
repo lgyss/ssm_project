@@ -24,7 +24,7 @@
       <p><a href="../zhuxiao.do" target="_self">退出系统</a></p>
       </div><!-- #EndLibraryItem --><div id="right">
         <p>您现在的位置 &gt;&gt; 欢迎光临</p>
-          <h1>欢迎光临大唐电信</h1>
+          <h1>欢迎${employee.employeeName}光临大唐电信</h1>
           
     </div></td></tr>
 </table>

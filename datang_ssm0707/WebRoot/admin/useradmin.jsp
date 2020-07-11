@@ -38,10 +38,10 @@
             </tr>
              <c:forEach items="${emps.data}" var="all" >
             <tr>
-            <td>${all.employee_name}</td>
+             <td>${all.employeeName}</td>
             <td>${all.password}</td>
-            <td>${all.role.role_DESC}</td>
-            <td>${all.real_name}</td>
+            <td>${all.role.roleDesc}</td>
+            <td>${all.realName}</td>
             <td><fmt:formatDate value="${all.enrolldate}" pattern="yyyy-MM-dd" /></td>
             <td>${all.duty}</td>
             </tr>
@@ -57,13 +57,13 @@
         <center>
 					<a>共${emps.lastPage }页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo1=${emps.firstPage}&pageSize1=${emps.pageSize}">首页</a>
+							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo=${emps.firstPage}&pageSize=${emps.pageSize}">首页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo1=${emps.previousPage}&pageSize1=${emps.pageSize}">上一页</a>
+							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo=${emps.previousPage}&pageSize=${emps.pageSize}">上一页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo1=${emps.nextPage}&pageSize1=${emps.pageSize}">下一页</a>
+							href="${pageContext.request.contextPath }/admin/queryall.do?pageNo=${emps.nextPage}&pageSize=${emps.pageSize}">下一页</a>
 						<a 
-						    href="${pageContext.request.contextPath }/admin/queryall.do?pageNo1=${emps.lastPage}&pageSize1=${emps.pageSize}">末页</a>
+						    href="${pageContext.request.contextPath }/admin/queryall.do?pageNo=${emps.lastPage}&pageSize=${emps.pageSize}">末页</a>
 						<a>第${emps.pageNo }页</a>
 						<a>共${emps.totalRecords }条记录</a>
 						<a>共${emps.lastPage }页</a>

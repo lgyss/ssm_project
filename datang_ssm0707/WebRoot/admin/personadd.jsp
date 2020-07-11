@@ -11,7 +11,20 @@
 <title>新建用户</title>
 <link href="${pageContext.request.contextPath }/css/css.css"
 	rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+     function myCheck(){
+     for(var i=0;i<document.form1.elements.length-1;i++){
+         if(document.form1.elements[i].value==""){
+             alert("请您填写完整！") ;
+             document.form1.elements[i].focus();
+             return false;
+         }
+     }
+     return true;
+     }
+    </script>
 </head>
+
 
 <body>
 
@@ -47,12 +60,12 @@
 					<p>您现在的位置 &gt;&gt; 添加人员 &gt;&gt; 人员详细信息</p>
 					<h1>人员详细信息:</h1>
 					<spf:form action="emp_add.do" method="post" modelAttribute="addForm"
-						id="form1" name="form1">
+						id="form1" name="form1" onsubmit="return myCheck()">
 						<p>
-							用户名称： <input name="emp.employee_name" type="text" size="16" />
+							用户名称： <input name="emp.employeeName" type="text" size="16" />
 						</p>
 						<p>
-							真实姓名： <input name="emp.real_name" type="text" size="16" />
+							真实姓名： <input name="emp.realName" type="text" size="16" />
 						</p>
 						<p>
 							性&nbsp;&nbsp;&nbsp; 别： <input name="emp.sex" type="radio"
@@ -92,10 +105,10 @@
 						</p>
 						<p>
 							所属角色： <label>
-							 <spf:select path="role.role_ID">
+							 <spf:select path="emp.roleId">
 									<option />请选择角色
       								<spf:options items="${requestScope.allAddRoles }"
-										itemLabel="role_NAME" itemValue="role_ID" />
+										itemLabel="roleName" itemValue="roleId" />
 								</spf:select> </label>
 						</p>
 						<p>

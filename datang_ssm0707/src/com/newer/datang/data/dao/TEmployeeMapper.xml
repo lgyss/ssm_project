@@ -436,4 +436,24 @@
       PARENT_ID = #{parentId,jdbcType=DECIMAL}
     where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
   </update>
+  
+    <!-- admin分页 -->
+  <select id="selectbypage" parameterType="java.util.Map" resultMap="BaseResultMap">
+  select * from (select row_number() over(order by employee_id desc) no, t.* from t_employee  t 
+  <where>
+  	<if test="roleId!=null">
+  	ROLE_ID in
+  		<foreach collection="roleId" item="id" index="index" open="(" separator= "," close=")">
+  		 #{id}
+  		</foreach>
+  	</if>
+  </where>
+  ) temp where temp.no between #{startIndex} and #{endIndex}
+  </select>
+  
+  <!-- admin -->
+  <select id="queryAllManager"    resultMap="BaseResultMap">
+      select * from t_employee  where role_id=#{roleId} 
+  </select>
+  
 </mapper>

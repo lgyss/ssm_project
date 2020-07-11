@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,15 +34,15 @@
         
           <tr>
             <td class="tdcolor">用户名称</td>
-            <td>${all.employee_name}&nbsp;</td>
+            <td>${all.employeeName}&nbsp;</td>
           </tr>
           <tr>
             <td width="15%" class="tdcolor">真实姓名</td>
-            <td>${all.real_name}&nbsp;</td>
+            <td>${all.realName}&nbsp;</td>
           </tr>
           <tr>
             <td class="tdcolor">行业角色</td>
-            <td>${all.role.role_NAME}&nbsp;</td>
+            <td>${all.role.roleName}&nbsp;</td>
           </tr>
           <tr>
             <td class="tdcolor">性&nbsp;&nbsp;&nbsp;别</td>
@@ -49,7 +50,9 @@
           </tr>
           <tr>
             <td class="tdcolor">入职时间</td>
-            <td>${all.enrolldate}&nbsp;</td>
+            <td><fmt:formatDate value="${all.enrolldate}" pattern="yyyy-MM-dd" />
+            
+           </td>
           </tr>
           <tr>
             <td class="tdcolor">职位信息</td>
@@ -57,7 +60,8 @@
           </tr>
           <tr>
             <td class="tdcolor">出生年月</td>
-            <td>${all.birthday}&nbsp;</td>
+            <td><fmt:formatDate value="${all.birthday}" pattern="yyyy-MM-dd" />
+           </td>
           </tr>
           <tr>
             <td class="tdcolor">学历信息</td>
@@ -74,10 +78,9 @@
           <tr>
          <td class="tdcolor">上级主管</td>
 								<td><label> <select name="managerid">
-									<c:forEach items="${empall }" var ="m">
-									<option value="${m.employee_ID }">${m.real_name }</option>
+									<c:forEach items="${empall}" var ="m">
+									<option value="${m.employeeId }">${m.realName }</option>
 									</c:forEach>
-									
 								</select></label>
 								</td>
           </tr>

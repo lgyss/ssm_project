@@ -11,7 +11,18 @@
 
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
 <script type="text/javascript">
-    
+ $(function() {
+			$("#btn1").click(function() {
+			var item=$("#eid:checked");
+			var len=item.length;
+				if(len>0){
+					alert("删除成功！");
+				}else{
+					alert("请选择要删除的人员！");
+					return false;
+				}
+			});
+		});
 </script>
 
 </head>
@@ -45,20 +56,20 @@
             </tr>
             <c:forEach items="${empadmin.data}" var="all" >
             <tr>
-            <td>${all.employee_name}</td>
+            <td>${all.employeeName}</td>
             <td>${all.password}</td>
-            <td>${all.role.role_DESC}</td>
-            <td>${all.real_name}</td>
+            <td>${all.role.roleDesc}</td>
+            <td>${all.realName}</td>
             <td><fmt:formatDate value="${all.enrolldate}" pattern="yyyy-MM-dd" /></td>
             <td>${all.duty}</td>
-            <td><label> <input type="radio" name="ID" value="${all.employee_ID}"  id="dio"/> </label></td>
+            <td><label> <input type="radio" name="ID" value="${all.employeeId}"  id="eid"/> </label></td>
             </tr>
             
             </c:forEach>
                  </table>
 	      <p id="myP">
             <label>
-            <input name="Submit" type="submit" class="menu3" value="删除人员"  id="btn"/>
+            <input name="Submit" type="submit" class="menu3" value="删除人员"  id="btn1"/>
             </label>
             <label></label>
 	      </p>
@@ -66,13 +77,13 @@
                          <center>
 					<a>共${empadmin.lastPage }页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/All.do?pageNo1=${empadmin.firstPage}&pageSize1=${empadmin.pageSize}">首页</a>
+							href="${pageContext.request.contextPath }/admin/All.do?pageNo=${empadmin.firstPage}&pageSize=${empadmin.pageSize}">首页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/All.do?pageNo1=${empadmin.previousPage}&pageSize1=${empadmin.pageSize}">上一页</a>
+							href="${pageContext.request.contextPath }/admin/All.do?pageNo=${empadmin.previousPage}&pageSize=${empadmin.pageSize}">上一页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/All.do?pageNo1=${empadmin.nextPage}&pageSize1=${empadmin.pageSize}">下一页</a>
+							href="${pageContext.request.contextPath }/admin/All.do?pageNo=${empadmin.nextPage}&pageSize=${empadmin.pageSize}">下一页</a>
 						<a 
-						    href="${pageContext.request.contextPath }/admin/All.do?pageNo1=${empadmin.lastPage}&pageSize1=${empadmin.pageSize}">末页</a>
+						    href="${pageContext.request.contextPath }/admin/All.do?pageNo=${empadmin.lastPage}&pageSize=${empadmin.pageSize}">末页</a>
 						<a>第${empadmin.pageNo }页</a>
 						<a>共${empadmin.totalRecords }条记录</a>
 						<a>共${empadmin.lastPage }页</a>

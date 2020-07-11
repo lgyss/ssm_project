@@ -42,13 +42,13 @@
             </tr>
             <c:forEach items="${all.data}" var="all" >
             <tr>
-            <td>${all.employee_name}</td>
+             <td>${all.employeeName}</td>
             <td>${all.password}</td>
-            <td>${all.role.role_DESC}</td>
-            <td>${all.real_name}</td>
-            <td><fmt:formatDate value="${all.enrolldate }" pattern="yyyy-MM-dd" /></td>
+            <td>${all.role.roleName}</td>
+            <td>${all.realName}</td>
+            <td><fmt:formatDate value="${all.enrolldate}" pattern="yyyy-MM-dd" /></td>
             <td>${all.duty}</td>
-            <td><label> <input type="radio" name="ID" value="${all.employee_ID}"  id="dio" checked="checked"/> </label></td> 
+            <td><label> <input type="radio" name="ID" value="${all.employeeId}"  id="dio" checked="checked"/> </label></td> 
             </tr>
             </c:forEach>
           </table>
@@ -62,13 +62,13 @@
                 <center>
 					<a>共${all.lastPage }页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/update.do?pageNo1=${all.firstPage}&pageSize1=${all.pageSize}">首页</a>
+							href="${pageContext.request.contextPath }/admin/update.do?pageNo=${all.firstPage}&pageSize=${all.pageSize}">首页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/update.do?pageNo1=${all.previousPage}&pageSize1=${all.pageSize}">上一页</a>
+							href="${pageContext.request.contextPath }/admin/update.do?pageNo=${all.previousPage}&pageSize=${all.pageSize}">上一页</a>
 						<a
-							href="${pageContext.request.contextPath }/admin/update.do?pageNo1=${all.nextPage}&pageSize1=${all.pageSize}">下一页</a>
+							href="${pageContext.request.contextPath }/admin/update.do?pageNo=${all.nextPage}&pageSize=${all.pageSize}">下一页</a>
 						<a 
-						    href="${pageContext.request.contextPath }/admin/update.do?pageNo1=${all.lastPage}&pageSize1=${all.pageSize}">末页</a>
+						    href="${pageContext.request.contextPath }/admin/update.do?pageNo=${all.lastPage}&pageSize=${all.pageSize}">末页</a>
 						<a>第${all.pageNo }页</a>
 						<a>共${all.totalRecords }条记录</a>
 						<a>共${all.lastPage }页</a>
