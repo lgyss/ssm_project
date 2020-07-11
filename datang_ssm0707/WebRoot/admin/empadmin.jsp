@@ -16,7 +16,7 @@
 			var item=$("#eid:checked");
 			var len=item.length;
 				if(len>0){
-					alert("删除成功！！！");
+					alert("删除成功！");
 				}else{
 					alert("请选择要删除的人员！");
 					return false;
